@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class Ennemies : MonoBehaviour
 {
+    public Vector3 playerCoordinates;
+    public Player playerScript;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        playerCoordinates = GameObject.FindGameObjectWithTag("Player").transform.position;
+        playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     public void Die()
     {
         Debug.Log("bouum");
+        playerScript.UpdateScore();
         Destroy(gameObject);
     }
 }

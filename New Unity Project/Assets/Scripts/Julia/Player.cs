@@ -7,9 +7,10 @@ public class Player : MonoBehaviour
 {
     public int lifePoints;
     int actualLife;
-    public Text lifeText;
-    public float fireBallCooldown, shieldCooldown, shieldDuration;
-    bool canUseFireball = true, canUseShield = true, shieldIsInUse = false;
+    public Text lifeText, scoreText;
+    public float fireBallCooldown, shieldCooldown, shieldDuration, invincibilityFramesDuration, timeInvincibility;
+    bool canUseFireball = true, canUseShield = true, shieldIsInUse = false, isInInvicibility = false;
+    int numberOfKills;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,18 +21,26 @@ public class Player : MonoBehaviour
     void Update()
     {
         lifeText.text = (actualLife + " / " + lifePoints);
+        scoreText.text = ("Score : " + numberOfKills);
     }
 
     public void TakeDamages()
     {
-        if (shieldIsInUse == false)
+        if (shieldIsInUse == false || isInInvicibility == false)
         {
+            isInInvicibility = true;
+            StartCoroutine(InvincibilityCoroutine());
             actualLife--;
             if (actualLife <= 0)
             {
                 //gameover
             }
         }
+    }
+    IEnumerator InvincibilityCoroutine()
+    {
+        yield return new WaitForSecondsRealtime(invincibilityFramesDuration);
+        isInInvicibility = false;
     }
 
     public void FireBall()
@@ -40,9 +49,14 @@ public class Player : MonoBehaviour
         {
             canUseFireball = false;
             GameObject[] ennemies = GameObject.FindGameObjectsWithTag("Ennemy");
+            GameObject[] ammos = GameObject.FindGameObjectsWithTag("Ammo");
             foreach (GameObject ennemy in ennemies)
             {
                 ennemy.GetComponent<Ennemies>().Die();
+            }
+            foreach(GameObject ammo in ammos)
+            {
+                ammo.GetComponent<Ammos>().Destroying();
             }
             StartCoroutine(FireBallCooldown());
         }
@@ -77,5 +91,10 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(shieldCooldown);
         canUseShield = true;
+    }
+
+    public void UpdateScore()
+    {
+        numberOfKills++;
     }
 }

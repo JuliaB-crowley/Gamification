@@ -25,10 +25,10 @@ public class EnnemySpawn : MonoBehaviour
         if(timeSinceLastSpawn >= timeBetweenSpawn)
         {
             timeSinceLastSpawn = 0;
-            int index = Random.Range(0, ennemies.Count - 1);
+            int index = Random.Range(0, ennemies.Count);
             //Vector2 random = 
             Vector2 pos = centerOfArea + new Vector2(Random.Range(-sizeOfArea.x / 2, sizeOfArea.x / 2), Random.Range(-sizeOfArea.y / 2, sizeOfArea.y / 2));
-            Debug.Log(pos);
+            //Debug.Log(pos);
             Instantiate(ennemies[index], pos, Quaternion.identity);
             numberAlreadySpawned++;
         }

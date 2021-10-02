@@ -24,6 +24,11 @@ public class ClickDetection : MonoBehaviour
                 {
                     hit.collider.GetComponent<Ennemies>().Die();
                 }
+
+                if(hit.collider.CompareTag("Ammo"))
+                {
+                    hit.collider.GetComponent<Ammos>().Destroying();
+                }
                     
 
                     
