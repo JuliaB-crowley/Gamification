@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public float fireBallCooldown, shieldCooldown, shieldDuration, invincibilityFramesDuration, timeInvincibility;
     bool canUseFireball = true, canUseShield = true, shieldIsInUse = false, isInInvicibility = false;
     int numberOfKills;
+    public Image spriteBouclier, spriteBoule;
     // Start is called before the first frame update
     void Start()
     {
@@ -61,6 +62,7 @@ public class Player : MonoBehaviour
             {
                 ammo.GetComponent<Ammos>().Destroying();
             }
+            spriteBoule.color = new Color(1,1,1,0.2f);
             StartCoroutine(FireBallCooldown());
         }
 
@@ -68,9 +70,32 @@ public class Player : MonoBehaviour
 
     IEnumerator FireBallCooldown()
     {
+        StartCoroutine(FadeTo(1, fireBallCooldown));
         yield return new WaitForSecondsRealtime(fireBallCooldown);
         canUseFireball = true;
         
+    }
+
+    IEnumerator FadeTo(float aValue, float aTime)
+    {
+        float alpha = spriteBoule.color.a;
+        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / aTime)
+        {
+            Color newColor = new Color(1, 1, 1, Mathf.Lerp(alpha, aValue, t));
+            spriteBoule.color = newColor;
+            yield return null;
+        }
+    }
+
+    IEnumerator FadeToBouclier(float aValue, float aTime)
+    {
+        float alpha = spriteBouclier.color.a;
+        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / aTime)
+        {
+            Color newColor = new Color(1, 1, 1, Mathf.Lerp(alpha, aValue, t));
+            spriteBouclier.color = newColor;
+            yield return null;
+        }
     }
 
     public void Shield()
@@ -80,6 +105,7 @@ public class Player : MonoBehaviour
             Debug.Log("Shield is in use");
             canUseShield = false;
             shieldIsInUse = true;
+            spriteBouclier.color = new Color(1, 1, 1, 0.2f);
             StartCoroutine(ShieldDuration());
             StartCoroutine(ShieldCooldown());
         }
@@ -94,6 +120,7 @@ public class Player : MonoBehaviour
 
     IEnumerator ShieldCooldown()
     {
+        StartCoroutine(FadeToBouclier(1, shieldCooldown));
         yield return new WaitForSecondsRealtime(shieldCooldown);
         canUseShield = true;
     }
