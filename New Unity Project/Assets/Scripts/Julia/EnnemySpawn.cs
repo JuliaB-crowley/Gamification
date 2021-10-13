@@ -9,6 +9,7 @@ public class EnnemySpawn : MonoBehaviour
     public int numberAlreadySpawned =0;
     float timeSinceLastSpawn;
     public float timeBetweenSpawn;
+    public int numberAlive, numberCap = 15;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,7 @@ public class EnnemySpawn : MonoBehaviour
         
         
         timeSinceLastSpawn += Time.deltaTime;
-        if(timeSinceLastSpawn >= timeBetweenSpawn)
+        if(timeSinceLastSpawn >= timeBetweenSpawn && numberAlive <= numberCap)
         {
             timeSinceLastSpawn = 0;
             int index = Random.Range(0, ennemies.Count);
@@ -31,6 +32,7 @@ public class EnnemySpawn : MonoBehaviour
             //Debug.Log(pos);
             Instantiate(ennemies[index], pos, Quaternion.identity);
             numberAlreadySpawned++;
+            MonsterListAdd();
         }
     }
 
@@ -38,5 +40,15 @@ public class EnnemySpawn : MonoBehaviour
     {
         Gizmos.color = new Color(1, 0, 0, 0.5f);
         Gizmos.DrawCube(centerOfArea, sizeOfArea);
+    }
+
+    void MonsterListAdd()
+    {
+        numberAlive++;
+    }
+
+    public void MonsterListRemove()
+    {
+        numberAlive--;
     }
 }

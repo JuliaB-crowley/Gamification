@@ -124,7 +124,7 @@ MonoBehaviour:
   m_MinSize: {x: 911, y: 442}
   m_MaxSize: {x: 22006, y: 14042}
   vertical: 0
-  controlID: 84
+  controlID: 18
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_MinSize: {x: 201, y: 442}
   m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
-  controlID: 35
+  controlID: 78
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -255,7 +255,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 392}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 121
+  controlID: 126
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -460,9 +460,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -4.1346836, y: 2.263514, z: -0.57430834}
+    m_Target: {x: -4.7382746, y: 2.607925, z: -1.8631423}
     speed: 2
-    m_Value: {x: -4.1346836, y: 2.263514, z: -0.57430834}
+    m_Value: {x: -4.7382746, y: 2.607925, z: -1.8631423}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -513,9 +513,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 6.089507
+    m_Target: 7.287137
     speed: 2
-    m_Value: 6.089507
+    m_Value: 7.287137
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -2025,7 +2025,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 21264
+  m_LastSelectedObjectID: 17582
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -2056,7 +2056,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: ae440000
       m_LastClickedID: 17582
-      m_ExpandedIDs: 56fbffff
+      m_ExpandedIDs: 56fbffffa4440000b4440000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -2118,13 +2118,13 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts/Julia
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 35
   m_LastFolders:
-  - Assets
+  - Assets/Scripts/Julia
   m_LastFoldersGridSize: 35
   m_LastProjectPath: C:\Users\ingri\OneDrive\Bureau\Gamification\Gamification\New
     Unity Project
@@ -2132,9 +2132,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 94450000
-    m_LastClickedID: 17812
-    m_ExpandedIDs: 0000000094450000c045000000ca9a3b
+    m_SelectedIDs: b4480000
+    m_LastClickedID: 18612
+    m_ExpandedIDs: 0000000094450000c8450000ce45000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

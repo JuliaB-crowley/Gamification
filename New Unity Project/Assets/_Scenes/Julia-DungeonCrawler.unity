@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 247618584}
   m_Layer: 0
   m_Name: Zone of spawn
-  m_TagString: Untagged
+  m_TagString: Zone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -272,12 +272,16 @@ MonoBehaviour:
   centerOfArea: {x: 0.22, y: 3.5}
   sizeOfArea: {x: 15, y: 5}
   ennemies:
-  - {fileID: 1803688369}
+  - {fileID: 7091096776162251451, guid: d158a0af72e9af942ae3b37d168bba79, type: 3}
   - {fileID: 2699807288673165503, guid: 68160dcce929fb049ab7f3214f376b38, type: 3}
   - {fileID: 2699807288673165503, guid: 68160dcce929fb049ab7f3214f376b38, type: 3}
   - {fileID: 1499163931271510886, guid: 235d70250a42f3b4582087e14e9dd29e, type: 3}
+  - {fileID: 2699807288673165503, guid: 68160dcce929fb049ab7f3214f376b38, type: 3}
+  - {fileID: 7091096776162251451, guid: d158a0af72e9af942ae3b37d168bba79, type: 3}
   numberAlreadySpawned: 0
   timeBetweenSpawn: 1
+  numberAlive: 0
+  numberCap: 15
 --- !u!1 &307666136
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,9 +331,9 @@ MonoBehaviour:
   lifeText: {fileID: 1683739039}
   scoreText: {fileID: 1997107373}
   fireBallCooldown: 5
-  shieldCooldown: 5
-  shieldDuration: 3
-  invincibilityFramesDuration: 0
+  shieldCooldown: 8
+  shieldDuration: 5
+  invincibilityFramesDuration: 2
   timeInvincibility: 0
 --- !u!212 &307666139
 SpriteRenderer:
@@ -464,7 +468,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 329347812}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 307666138}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: Shield
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &329347812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1071,11 +1087,6 @@ RectTransform:
   m_AnchoredPosition: {x: -215, y: 128}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1803688369 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7091096776162251451, guid: d158a0af72e9af942ae3b37d168bba79, type: 3}
-  m_PrefabInstance: {fileID: 7091096777596832522}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1997107372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1362,7 +1373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4615523527770443719, guid: 47e0218b82f6d664697806d59a08008d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47e0218b82f6d664697806d59a08008d, type: 3}
@@ -1423,7 +1434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1499163931271510886, guid: 235d70250a42f3b4582087e14e9dd29e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 235d70250a42f3b4582087e14e9dd29e, type: 3}
@@ -1440,7 +1451,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7091096776162251451, guid: d158a0af72e9af942ae3b37d168bba79, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7091096776162251452, guid: d158a0af72e9af942ae3b37d168bba79, type: 3}
       propertyPath: m_RootOrder

@@ -16,6 +16,7 @@ public class Sprinter : Ennemies
             // Swap the position of the cylinder.
             //Debug.Log("est arrivé");
             playerScript.TakeDamages();
+            zoneScript.MonsterListRemove();
             Destroy(gameObject);
         }
     }

@@ -26,14 +26,17 @@ public class Player : MonoBehaviour
 
     public void TakeDamages()
     {
-        if (shieldIsInUse == false || isInInvicibility == false)
+        if (shieldIsInUse == false)
         {
-            isInInvicibility = true;
-            StartCoroutine(InvincibilityCoroutine());
-            actualLife--;
-            if (actualLife <= 0)
+            if (isInInvicibility == false)
             {
-                //gameover
+                isInInvicibility = true;
+                StartCoroutine(InvincibilityCoroutine());
+                actualLife--;
+                if (actualLife <= 0)
+                {
+                    //gameover
+                }
             }
         }
     }
@@ -74,6 +77,7 @@ public class Player : MonoBehaviour
     {
         if (canUseShield == true)
         {
+            Debug.Log("Shield is in use");
             canUseShield = false;
             shieldIsInUse = true;
             StartCoroutine(ShieldDuration());
@@ -84,6 +88,7 @@ public class Player : MonoBehaviour
     IEnumerator ShieldDuration()
     {
         yield return new WaitForSecondsRealtime(shieldDuration);
+        Debug.Log("Shield is off");
         shieldIsInUse = false;
     }
 
