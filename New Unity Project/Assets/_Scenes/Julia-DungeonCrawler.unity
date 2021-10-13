@@ -279,7 +279,7 @@ MonoBehaviour:
   - {fileID: 2699807288673165503, guid: 68160dcce929fb049ab7f3214f376b38, type: 3}
   - {fileID: 7091096776162251451, guid: d158a0af72e9af942ae3b37d168bba79, type: 3}
   numberAlreadySpawned: 0
-  timeBetweenSpawn: 1
+  timeBetweenSpawn: 1.5
   numberAlive: 0
   numberCap: 15
 --- !u!1 &307666136
@@ -333,7 +333,7 @@ MonoBehaviour:
   fireBallCooldown: 5
   shieldCooldown: 8
   shieldDuration: 5
-  invincibilityFramesDuration: 2
+  invincibilityFramesDuration: 1
   timeInvincibility: 0
 --- !u!212 &307666139
 SpriteRenderer:
